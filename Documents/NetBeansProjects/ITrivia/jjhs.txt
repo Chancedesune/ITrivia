@@ -1,0 +1,7 @@
+easyScore=100
+averageScore=0
+extremeScore=0
+tokens=7
+easyCompleted=true
+averageCompleted=true
+extremeCompleted=true
