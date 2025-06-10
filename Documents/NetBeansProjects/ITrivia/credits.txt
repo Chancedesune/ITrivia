@@ -1,5 +1,6 @@
-    ITRIVIA
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ 
+
+
 Concept Idea by: Four Pillars of INF-245 (S.Y 2024-2025)
 
 Lead Programmer: James Renier De los Reyes
@@ -11,4 +12,3 @@ Submitted to: Prof. Elsie V. Isip
 Finals Project in Object-Oriented Programming
 
 Thank you for playing!
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=

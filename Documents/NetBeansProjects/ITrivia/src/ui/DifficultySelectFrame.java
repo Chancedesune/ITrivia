@@ -2,7 +2,6 @@ package ui;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import model.User;
 
 public class DifficultySelectFrame extends JFrame {
@@ -12,43 +11,65 @@ public class DifficultySelectFrame extends JFrame {
         this.user = user;
 
         setTitle("Select Difficulty");
-        setSize(400, 250);
+        setSize(1000, 707);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
-
-        JLabel promptLabel = new JLabel("Select a difficulty:", SwingConstants.CENTER);
-        promptLabel.setBounds(50, 30, 300, 30);
-        add(promptLabel);
-
-        JButton easyButton = new JButton("Easy");
-        easyButton.setBounds(50, 80, 100, 30);
-        easyButton.addActionListener((ActionEvent e) -> {
-            launchGame("Easy");
-        });
-        add(easyButton);
-
-        JButton averageButton = new JButton("Average");
-        averageButton.setBounds(150, 80, 100, 30);
+        
+        //background
+        ImageIcon bgIcon = new ImageIcon("src/itriviaui/level/bg.png");
+        JLabel backgroundLabel = new JLabel(bgIcon);
+        backgroundLabel.setBounds(0, 0, 1000, 707);
+        backgroundLabel.setLayout(null);
+        setContentPane(backgroundLabel);
+        
+        //level of difficulty title
+        ImageIcon levelOfDifIcon = new ImageIcon("src/itriviaui/level/levelofdif.png");
+        JLabel levelOfDifLabel = new JLabel(levelOfDifIcon);
+        levelOfDifLabel.setBounds(190, 275, 615, 110);
+        backgroundLabel.add(levelOfDifLabel);
+        
+        //easy
+        ImageIcon easyIcon = new ImageIcon("src/itriviaui/level/easy.png");
+        JButton easyButton = new JButton(easyIcon);
+        easyButton.setBounds(190, 400, 150, 170);
+        easyButton.setBorderPainted(false);
+        easyButton.setContentAreaFilled(false);
+        easyButton.setFocusPainted(false);
+        easyButton.addActionListener((ActionEvent e) -> launchGame("Easy"));
+        backgroundLabel.add(easyButton);
+        
+        //average
+        ImageIcon averageIcon = new ImageIcon("src/itriviaui/level/average.png");
+        JButton averageButton = new JButton(averageIcon);
+        averageButton.setBounds(425, 400, 150, 170);
+        averageButton.setBorderPainted(false);
+        averageButton.setContentAreaFilled(false);
+        averageButton.setFocusPainted(false);
         averageButton.addActionListener((ActionEvent e) -> {
             if (!user.hasFinishedDifficulty("Easy")) {
-                JOptionPane.showMessageDialog(null, "You must complete Easy mode first to unlock Average mode.");
+                JOptionPane.showMessageDialog(this, "You must complete Easy mode first to unlock Average mode.");
                 return;
             }
             launchGame("Average");
         });
-        add(averageButton);
-
-        JButton extremeButton = new JButton("Extreme");
-        extremeButton.setBounds(250, 80, 100, 30);
+        backgroundLabel.add(averageButton);
+        
+        //extreme
+        ImageIcon extremeIcon = new ImageIcon("src/itriviaui/level/extreme.png");
+        JButton extremeButton = new JButton(extremeIcon);
+        extremeButton.setBounds(660, 400, 150, 170);
+        extremeButton.setBorderPainted(false);
+        extremeButton.setContentAreaFilled(false);
+        extremeButton.setFocusPainted(false);
         extremeButton.addActionListener((ActionEvent e) -> {
             if (!user.hasFinishedDifficulty("Average")) {
-                JOptionPane.showMessageDialog(null, "You must complete Average mode first to unlock Extreme mode.");
+                JOptionPane.showMessageDialog(this, "You must complete Average mode first to unlock Extreme mode.");
                 return;
             }
             launchGame("Extreme");
         });
-        add(extremeButton);
+        backgroundLabel.add(extremeButton);
         setVisible(true);
     }
 
