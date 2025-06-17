@@ -1,0 +1,5 @@
+easyScore=100
+averageScore=150
+extremeScore=110
+tokens=11
+date=2025-06-16 18:32

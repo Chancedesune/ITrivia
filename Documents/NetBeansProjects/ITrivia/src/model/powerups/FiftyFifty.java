@@ -6,7 +6,7 @@ import ui.GameFrame;
 public class FiftyFifty extends PowerUp {
 
     public FiftyFifty() {
-        super("50/50", 2);  //2 = cost of the token
+        super("50/50", 5);  //2 = cost of the token
     }
 
     @Override

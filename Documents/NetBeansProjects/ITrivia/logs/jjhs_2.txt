@@ -1,5 +1,5 @@
-easyScore=0
-averageScore=30
-extremeScore=110
-tokens=11
-date=2025-06-09 23:02
+easyScore=100
+averageScore=150
+extremeScore=170
+tokens=17
+date=2025-06-16 18:30

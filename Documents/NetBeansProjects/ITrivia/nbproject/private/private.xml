@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/service/HistoryService.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/ITrivia/src/model/User.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/ITrivia/src/ui/DifficultySelectFrame.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/ITrivia/src/service/ProgressService.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/ITrivia/logs/jjhs.txt</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/ITrivia/src/main/Main.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/ITrivia/src/ui/GameFrame.java</file>
+        </group>
     </open-files>
 </project-private>

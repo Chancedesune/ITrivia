@@ -35,20 +35,20 @@ public class HistoryDialog extends JDialog {
     }
     
     public static void saveAttempt(String username, int attemptNumber, int easyScore, int averageScore, int extremeScore, int tokens, String date) {
-    File directory = new File("logs");
-    if (!directory.exists()) { directory.mkdir(); }
-    File file = new File(directory, username + "_" + attemptNumber + ".txt");
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write("easyScore=" + easyScore);
-            writer.newLine();
-            writer.write("averageScore=" + averageScore);
-            writer.newLine();
-            writer.write("extremeScore=" + extremeScore);
-            writer.newLine();
-            writer.write("tokens=" + tokens);
-            writer.newLine();
-            writer.write("date=" + date);
-            writer.newLine();
+        File directory = new File("logs");
+        if (!directory.exists()) { directory.mkdir(); }
+        File file = new File(directory, username + "_" + attemptNumber + ".txt");
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                writer.write("easyScore=" + easyScore);
+                writer.newLine();
+                writer.write("averageScore=" + averageScore);
+                writer.newLine();
+                writer.write("extremeScore=" + extremeScore);
+                writer.newLine();
+                writer.write("tokens=" + tokens);
+                writer.newLine();
+                writer.write("date=" + date);
+                writer.newLine();
         } catch (IOException e) { }
     }
 }

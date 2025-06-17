@@ -1,5 +1,5 @@
 easyScore=100
 averageScore=150
-extremeScore=150
+extremeScore=200
 tokens=15
-date=2025-06-16 18:24
+date=2025-06-16 18:40

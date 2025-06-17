@@ -29,15 +29,14 @@ public class GameRulesFrame extends JFrame {
                           → Gain a token for every correct answer.
                           → Game ends when all questions are answered.
                           → Unlock the next mode by getting a perfect score on the previous one.
-
-                          Good luck and Have Fun (GLHF)!
+                          → Fifty-Fifty costs 2 tokens. Skip costs 3 Tokens.
                           """);
         rulesArea.setFont(new Font("Arial", Font.BOLD, 17));
         rulesArea.setOpaque(false);
         rulesArea.setForeground(Color.BLUE);
         rulesArea.setEditable(false);
         rulesArea.setFocusable(false);
-        rulesArea.setBounds(190, 400, 620, 150);
+        rulesArea.setBounds(190, 380, 620, 150);
         backgroundLabel.add(rulesArea);
         
         //gamerule png for gamerule
@@ -59,7 +58,6 @@ public class GameRulesFrame extends JFrame {
             new DifficultySelectFrame(user);
             dispose();
         });
-
         setVisible(true);
     }
 }

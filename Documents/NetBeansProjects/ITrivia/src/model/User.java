@@ -20,6 +20,22 @@ public class User {
         this.score = 0;
         this.tokens = 0;
     }
+    
+    public boolean hasPerfectScore(String difficulty) {
+        int perfectScore = switch (difficulty.toLowerCase()) {
+            case "easy" -> 10 * 10;
+            case "average" -> 15 * 10;
+            case "extreme" -> 20 * 10;
+            default -> 0;
+        };
+        int currentScore = switch (difficulty.toLowerCase()) {
+            case "easy" -> getEasyScore();
+            case "average" -> getAverageScore();
+            case "extreme" -> getExtremeScore();
+            default -> 0;
+        };
+        return currentScore == perfectScore;
+    }
 
     public void setDifficultyCompleted(String difficulty) {
         switch (difficulty) {
@@ -64,7 +80,7 @@ public class User {
             directory.mkdir();
         }
         File file = new File(directory, username + ".txt");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(username + ".txt"))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write("easyScore=" + easyScore);
             writer.newLine();
             writer.write("averageScore=" + averageScore);

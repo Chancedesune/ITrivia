@@ -5,7 +5,7 @@ import java.io.*;
 
 public class ProgressService {
     public static void saveProgress(User user) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(user.getUsername() + ".txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("logs/" + user.getUsername() + ".txt"))) {
             writer.write("username=" + user.getUsername());
             writer.newLine();
             writer.write("score=" + user.getScore());
@@ -23,7 +23,7 @@ public class ProgressService {
     
     public static User loadProgress(String username) {
         User user = new User(username);
-        File file = new File(username + ".txt");
+        File file = new File("logs/" + username + ".txt");
         if (!file.exists()) return user;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -32,6 +32,9 @@ public class ProgressService {
                 String[] parts = line.split("=");
                 if (parts.length < 2) continue;
                 switch (parts[0]) {
+                    case "easyScore" -> user.setEasyScore(Integer.parseInt(parts[1]));
+                    case "averageScore" -> user.setAverageScore(Integer.parseInt(parts[1]));
+                    case "extremeScore" -> user.setExtremeScore(Integer.parseInt(parts[1]));
                     case "score" -> user.addScore(Integer.parseInt(parts[1]));
                     case "tokens" -> user.setTokens(Integer.parseInt(parts[1]));
                     case "easyCompleted" -> {
@@ -50,7 +53,7 @@ public class ProgressService {
     }
     
     public static boolean hasUserPlayedBefore(String username) {
-        File file = new File(username + ".txt");
+        File file = new File("logs/" + username + ".txt");
         return file.exists();
     }
     

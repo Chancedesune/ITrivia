@@ -47,8 +47,8 @@ public class DifficultySelectFrame extends JFrame {
         averageButton.setContentAreaFilled(false);
         averageButton.setFocusPainted(false);
         averageButton.addActionListener((ActionEvent e) -> {
-            if (!user.hasFinishedDifficulty("Easy")) {
-                JOptionPane.showMessageDialog(this, "You must complete Easy mode first to unlock Average mode.");
+                if (!user.hasPerfectScore("Easy")) {
+                JOptionPane.showMessageDialog(this, "You must get a perfect score in Easy mode to unlock Average mode.");
                 return;
             }
             launchGame("Average");
@@ -63,8 +63,8 @@ public class DifficultySelectFrame extends JFrame {
         extremeButton.setContentAreaFilled(false);
         extremeButton.setFocusPainted(false);
         extremeButton.addActionListener((ActionEvent e) -> {
-            if (!user.hasFinishedDifficulty("Average")) {
-                JOptionPane.showMessageDialog(this, "You must complete Average mode first to unlock Extreme mode.");
+            if (!user.hasPerfectScore("Average")) {
+                JOptionPane.showMessageDialog(this, "You must get a perfect score in Average mode to unlock Extreme mode.");
                 return;
             }
             launchGame("Extreme");

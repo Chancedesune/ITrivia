@@ -36,7 +36,7 @@ public class QuestionService {
                 new String[]{"Semicolon (;)", "Colon (:)", "Period (.)", "Bracket (})"}, 0));
 
             questions.add(new Question("What do you call the brain of the computer?",
-                new String[]{"ROM", "GPU", "RAM", "CPU (Central Processing Unit)"}, 3));
+                new String[]{"ROM (Read-Only Memory)", "GPU (Graphic Processing Unit)", "RAM (Random Access Memory)", "CPU (Central Processing Unit)"}, 3));
 
             questions.add(new Question("What does HTML stand for?",
                 new String[]{"HyperText Markup Level", "Hyper Transfer Markup Language", "HyperText Markup Language", "Hyper Tool Mark Language"}, 2));
@@ -130,6 +130,9 @@ public class QuestionService {
             questions.add(new Question("What is the purpose of the Scanner class in Java?",
                 new String[]{"To print output to the screen", "To perform complex mathematical operations", "To handle graphical user interface components", "To read user input from the console"}, 3));
 
+            questions.add(new Question("What is the correct syntax to create a Scanner object to take input from the user in Java?",
+                new String[]{"Scanner input = Scanner(System.in);", "Scanner input = new Scanner(System.in);", "Scanner input = new Scanner();", "Scanner = new Scanner();"}, 1));
+            
 //EXTREME QUESTIONS >>>>>    
         } else if (difficulty.equalsIgnoreCase("Extreme")) {
             questions.add(new Question("An abstract class has both what?",
@@ -184,7 +187,7 @@ public class QuestionService {
                 new String[]{"super", "this", "parent", "base"}, 0));
 
             questions.add(new Question("What happens if a Java class implements multiple interfaces that have methods with the same signature?",
-                new String[]{"It causes a compilation error", "The class must override the method once", "The first interface's method is chosen", "Java does not support multiple interfaces"}, 2));
+                new String[]{"It causes a compilation error", "The class must override the method once", "The first interface's method is chosen", "Java does not support multiple interfaces"}, 1));
 
             questions.add(new Question("Which collection class allows you to store elements in key-value pairs and does not allow duplicate keys?",
                 new String[]{"HashMap", "ArrayList", "LinkedList", "HashSet"}, 0));
@@ -205,7 +208,7 @@ public class QuestionService {
                 new String[]{"It requires manual invocation to run", "It automatically frees memory by destroying unreachable objects", "It pauses all threads while running", "It only runs when the program exits"}, 1));
 
             questions.add(new Question("What Java keyword is used to prevent inheritance of a class?",
-                new String[]{"abstract", "final", "static", "private"}, 2));
+                new String[]{"abstract", "final", "static", "private"}, 1));
         }
         return questions;
     }

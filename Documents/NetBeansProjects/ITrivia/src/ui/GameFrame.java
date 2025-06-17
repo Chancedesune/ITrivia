@@ -33,12 +33,14 @@ public class GameFrame extends JFrame {
     public GameFrame(User user, String selectedDifficulty) {
         this.user = user;
         this.selectedDifficulty = selectedDifficulty;
+        
+        if (!selectedDifficulty.equalsIgnoreCase("easy")) { user.setTokens(0); }
 
         if (user.hasFinishedDifficulty(selectedDifficulty)) {
             user.resetProgressForDifficulty(selectedDifficulty);
-            JOptionPane.showMessageDialog(this, "You've already completed " + selectedDifficulty + ". Your score and tokens have been reset for this new attempt.");
-        }
-
+            JOptionPane.showMessageDialog(this, "You've already had an attempt in " + selectedDifficulty + ". Your score and tokens have been reset for this new attempt.");
+        } 
+        
         QuestionService questionService = new QuestionService();
         List<Question> allQuestions = questionService.getQuestions(selectedDifficulty);
 
@@ -116,8 +118,10 @@ public class GameFrame extends JFrame {
         JLabel questionPanel = new JLabel(questionPanelIcon);
         questionPanel.setBounds(70, 185, 858, 218);
         questionPanel.setLayout(null);
-
-        JLabel questionLabel = new JLabel("<html><div style='text-align: center;'>" + question.getQuestionText() + "</div></html>", SwingConstants.CENTER);
+        String questionNumberText = "Question " + (currentQuestionIndex + 1) + " of " + questions.size() + ": ";
+        JLabel questionLabel = new JLabel("<html><div style='text-align: center;'>" 
+            + questionNumberText + question.getQuestionText() 
+            + "</div></html>", SwingConstants.CENTER);
         questionLabel.setForeground(Color.BLUE);
         questionLabel.setFont(new Font("Arial", Font.BOLD, 24));
         questionLabel.setBounds(30, -5, 800, 180);
@@ -219,7 +223,7 @@ public class GameFrame extends JFrame {
         return allQuestions.stream().limit(n).collect(Collectors.toList());
     }
     
-        private void handleGameOver() {
+    private void handleGameOver() {
         int perfectScore = getPerfectScore(selectedDifficulty);
         int currentScore = switch (selectedDifficulty.toLowerCase()) {
             case "easy" -> user.getEasyScore();
@@ -241,7 +245,10 @@ public class GameFrame extends JFrame {
         if (selectedDifficulty.equalsIgnoreCase("Extreme")) {
             if (user.hasFinishedDifficulty("Easy")
                 && user.hasFinishedDifficulty("Average")
-                && user.hasFinishedDifficulty("Extreme")) {
+                && user.hasFinishedDifficulty("Extreme")
+                && user.hasPerfectScore("Easy")
+                && user.hasPerfectScore("Average")
+                && user.hasPerfectScore("Extreme")) {
                 showTrophyPopup();
                 return;
             }
@@ -261,7 +268,6 @@ public class GameFrame extends JFrame {
                     dispose();
                 }
                 case 2 -> System.exit(0);
-                    
             }
         }
         
@@ -330,5 +336,4 @@ public class GameFrame extends JFrame {
         creditsFrame.add(backgroundLabel);
         creditsFrame.setVisible(true);
     }
-
 }
